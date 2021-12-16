@@ -1,0 +1,20 @@
+apply plugin: 'biz.aQute.bnd.builder'
+
+dependencies {
+
+    runtimeOnly 'org.apache.felix:org.apache.felix.framework:6.0.5'
+}
+
+// Nothing to compile, but avoids Eclipse warning.
+java {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+}
+
+import aQute.bnd.gradle.Bndrun
+
+task run(type: Bndrun) {
+    group = 'verification'
+    bndrun = file("bnd.bndrun")
+    bundles = project.sourceSets.main.runtimeClasspath
+}

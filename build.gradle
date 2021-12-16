@@ -1,0 +1,33 @@
+plugins {
+    id "biz.aQute.bnd.builder" version "6.1.0"
+}
+
+subprojects {
+    apply plugin: 'java-library'
+    
+    repositories {
+        mavenCentral()
+    }
+
+    // Configure sensible layout
+    sourceSets {
+        main {
+            java {
+                srcDirs = ['src']
+            }
+            resources {
+                srcDirs = ['resources']
+            }
+        }
+    
+        test {
+            java {
+                srcDirs = ['test']
+            }
+            resources {
+                srcDirs = ['test-resources']
+            }
+        }
+    }
+        
+}
